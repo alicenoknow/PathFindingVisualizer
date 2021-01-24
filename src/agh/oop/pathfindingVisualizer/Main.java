@@ -26,7 +26,7 @@ public class Main extends Application {
         stage = primaryStage;
         String FXMLPath = "resources/window.fxml";
         this.loadFXML(FXMLPath);
-        stage.setScene(new Scene(root, 730, 575));
+        stage.setScene(new Scene(root, 735, 590));
         stage.setResizable(false);
         stage.show();
 
@@ -37,6 +37,7 @@ public class Main extends Application {
             URL filePath = this.getClass().getResource(path);
             FXMLLoader fxmlLoader = new FXMLLoader(filePath);
             this.root = fxmlLoader.load();
+            root.getStylesheets().add(getClass().getResource("resources/style.css").toExternalForm());
         } catch (NullPointerException | IllegalStateException | IOException e) {
             log.log(Level.SEVERE, "Cannot load fxml file! " + e.getMessage());
             System.exit(0);

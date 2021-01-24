@@ -44,23 +44,24 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        this.board = new Board(10, 10, 50, boardPane);
-        boardPane.addEventFilter(MouseDragEvent.DRAG_DETECTED, event -> boardPane.startFullDrag());
+       this.board = new Board(10, 10, 50, boardPane);
+       boardPane.addEventFilter(MouseDragEvent.DRAG_DETECTED, event -> boardPane.startFullDrag());
 
     }
 
 
     @FXML
     private void handleStartButtonAction() {
-        try {
+        try{
             speed = (int) speedSlider.getValue();
             setTimeline();
 
-            if (gameMode.isSelected()) {
+            if(gameMode.isSelected()){
                 Player player = new Player();
                 board.prepareForMaze();
                 setTimelineMaze(player);
-            } else {
+            }
+            else {
                 AlgorithmType algorithm = getAlgorithm();
                 if (algorithm == null)
                     return;
@@ -74,26 +75,24 @@ public class Controller {
             }
             timeline.play();
 
-        } catch (IllegalArgumentException ex) {
+        }
+        catch(IllegalArgumentException ex){
             message.setText("Wrong input!");
         }
     }
-
     @FXML
     private void handlePauseButtonAction() {
-        if (timeline != null)
+        if(timeline != null)
             timeline.stop();
     }
-
     @FXML
     private void handleResumeButtonAction() {
-        if (timeline != null)
+        if(timeline != null)
             timeline.play();
     }
-
     @FXML
     private void handleResetButtonAction() {
-        if (timeline != null)
+        if(timeline != null)
             timeline.pause();
         boardPane.getChildren().clear();
         this.initialize();
@@ -105,26 +104,25 @@ public class Controller {
     private void handleSetButtonAction() {
         int widthSize = getInput(width.getText());
         int heightSize = getInput(height.getText());
-        if (widthSize <= 1 || heightSize <= 1 || widthSize > 200 || heightSize > 200) return;
+        if(widthSize <= 1 || heightSize <= 1 || widthSize > 200 || heightSize > 200) return;
 
         boardPane.getChildren().clear();
         int size = Math.max(widthSize, heightSize);
-        this.board = new Board(widthSize, heightSize, 500 / size, boardPane);
+        this.board = new Board(widthSize, heightSize, 500/size, boardPane);
 
     }
 
     @FXML
     private void handleClearButtonAction() {
-        if (timeline != null)
+        if(timeline != null)
             timeline.pause();
         this.board.clear();
         boardPane.removeEventFilter(MouseEvent.ANY, mouseDisabler);
         message.setText("");
     }
-
     @FXML
     private void handleRandomButtonAction() {
-        if (timeline != null)
+        if(timeline != null)
             timeline.pause();
         this.board.clear();
         this.board.fillRandomly();
@@ -132,7 +130,8 @@ public class Controller {
     }
 
 
-    private int getInput(String data) {
+
+    private int getInput(String data){
         int value = -1;
         try {
             if (data == null) {
@@ -142,13 +141,14 @@ public class Controller {
             if (value <= 1 || value > 160) {
                 throw new NumberFormatException("Board size should be between 2 and 160!");
             }
-        } catch (NumberFormatException ex) {
+        }
+        catch(NumberFormatException ex){
             message.setText("Wrong Input!");
         }
         return value;
     }
 
-    private AlgorithmType getAlgorithm() {
+    private AlgorithmType getAlgorithm(){
         try {
             String value = algorithmChoice.getValue();
             if (value.equals(AlgorithmType.DFS.toString()))
@@ -157,32 +157,33 @@ public class Controller {
                 return AlgorithmType.BFS;
             else if (value.equals((AlgorithmType.A_STAR.toString())))
                 return AlgorithmType.A_STAR;
-        } catch (NullPointerException ex) {
+        }
+        catch(NullPointerException ex){
             message.setText("Choose algorithm!");
         }
         return null;
     }
 
-    private void printResult(int path) {
-        if (path > 0)
+    private void printResult(int path){
+        if(path > 0)
             message.setText("Path found! Length: " + path);
         else
             message.setText("Path not found :c");
     }
 
-    private void setTimeline() {
+    private void setTimeline(){
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         Main.stage.setOnCloseRequest(event -> timeline.stop());
     }
 
-    private void setTimelineMaze(Player player) {
+    private void setTimelineMaze(Player player){
 
         timeline.getKeyFrames().add(new KeyFrame(Duration.millis(speed),
                 actionEvent -> {                    // this will happen when timeline is running
                     board.performMazeStep();
                     board.checkMazeFlag();
-                    if (timeline.getStatus() == Animation.Status.PAUSED) {
+                    if(timeline.getStatus() == Animation.Status.PAUSED) {
                         player.startPlaying(board);
                         setTimelineGame(player);
 
@@ -190,11 +191,11 @@ public class Controller {
                 }));
     }
 
-    private void setTimelineGame(Player player) {
+    private void setTimelineGame(Player player){
         setTimeline();
         timeline.getKeyFrames().add(new KeyFrame(Duration.millis(speed),
                 actionEvent2 -> {                    // this will happen when timeline is running
-                    if (player.finished()) {
+                    if(player.finished()){
                         message.setText("Congratulations! You have reached the destination!");
                         timeline.stop();
                     }
@@ -203,13 +204,13 @@ public class Controller {
         timeline.play();
     }
 
-    private void setTimelineSearch(Searching search) {
+    private void setTimelineSearch(Searching search){
         boardPane.addEventFilter(MouseEvent.ANY, mouseDisabler);
 
         timeline.getKeyFrames().add(new KeyFrame(Duration.millis(speed),
                 actionEvent -> {                    // this will happen when timeline is running
                     search.performStep();
-                    if (timeline.getStatus() == Animation.Status.PAUSED) {
+                    if(timeline.getStatus() == Animation.Status.PAUSED) {
                         printResult(search.getResult());
                         boardPane.removeEventFilter(MouseEvent.ANY, mouseDisabler);
                     }

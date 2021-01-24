@@ -125,22 +125,22 @@ public class Board implements IStatusChangedObserver {
             walls.remove(curr);
         } else if (!isConnected(destination)) {
             next = getNeighbourN(destination);
-            if (checkAccessToNext()) {
+            if (next != null && next.isWall()) {
                 next.changeStatus(TileStatus.EMPTY);
                 return;
             }
             next = getNeighbourE(destination);
-            if (checkAccessToNext()) {
+            if (next != null && next.isWall()) {
                 next.changeStatus(TileStatus.EMPTY);
                 return;
             }
             next = getNeighbourS(destination);
-            if (checkAccessToNext()) {
+            if (next != null && next.isWall()) {
                 next.changeStatus(TileStatus.EMPTY);
                 return;
             }
             next = getNeighbourW(destination);
-            if (checkAccessToNext()) {
+            if (next != null && next.isWall()) {
                 next.changeStatus(TileStatus.EMPTY);
             }
         } else
@@ -233,19 +233,19 @@ public class Board implements IStatusChangedObserver {
 
     private void addWalls(Tile curr) {
         next = getNextNeighbourN(curr);
-        if (checkAccessToNext())
+        if (next != null && next.isWall())
             walls.add(next);
 
         next = getNextNeighbourE(curr);
-        if (checkAccessToNext())
+        if (next != null && next.isWall())
             walls.add(next);
 
         next = getNextNeighbourS(curr);
-        if (checkAccessToNext())
+        if (next != null && next.isWall())
             walls.add(next);
 
         next = getNextNeighbourW(curr);
-        if (checkAccessToNext())
+        if (next != null && next.isWall())
             walls.add(next);
     }
 
@@ -298,7 +298,7 @@ public class Board implements IStatusChangedObserver {
         return checkAccessToNext();
     }
 
-    private boolean checkAccessToNext() {
+    private boolean checkAccessToNext(){
         return next != null && !next.isWall();
     }
 }

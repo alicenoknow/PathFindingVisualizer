@@ -22,8 +22,8 @@
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="184.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="509.0" minHeight="10.0" prefHeight="491.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="509.0" minHeight="10.0" prefHeight="474.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <AnchorPane fx:id="boardPane" prefHeight="504.0" prefWidth="536.0" />
@@ -119,22 +119,22 @@
             </Button>
             <Button fx:id="set" mnemonicParsing="false" onAction="#handleSetButtonAction" prefHeight="25.0" prefWidth="47.0" text="Set">
                <GridPane.margin>
-                  <Insets left="120.0" />
+                  <Insets bottom="12.0" left="115.0" />
                </GridPane.margin>
             </Button>
             <CheckBox fx:id="diagonal" mnemonicParsing="false" prefHeight="17.0" prefWidth="148.0" text="Enable diagonal paths" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets bottom="20.0" left="20.0" />
+                  <Insets bottom="23.0" left="10.0" />
                </GridPane.margin>
             </CheckBox>
             <CheckBox fx:id="gameMode" mnemonicParsing="false" text="Game mode" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="20.0" top="25.0" />
+                  <Insets left="10.0" top="20.0" />
                </GridPane.margin>
             </CheckBox>
-            <Label text="Choose size from 2 to 200">
+            <Label fx:id="small" text="Choose size from 2 to 200">
                <GridPane.margin>
-                  <Insets left="20.0" top="64.0" />
+                  <Insets left="25.0" top="64.0" />
                </GridPane.margin>
                <font>
                   <Font size="11.0" />
@@ -142,54 +142,54 @@
             </Label>
          </children>
       </GridPane>
-      <Label fx:id="message" prefHeight="64.0" prefWidth="525.0" text="Click or drag over empty cells to create walls. In order to change source or destination, click on it and then click on the new position." wrapText="true" GridPane.rowIndex="1">
+      <Label fx:id="message" prefHeight="64.0" prefWidth="525.0" text="Click or drag over empty cells to create walls. In order to change source or destination, click on it and then click on the new position." textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="10.0" right="10.0" />
+            <Insets left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#323246" height="15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="55.0" left="5.0" />
+            <Insets bottom="50.0" left="5.0" />
          </GridPane.margin>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d2d2fa" height="15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="20.0" left="5.0" />
+            <Insets bottom="15.0" left="5.0" />
          </GridPane.margin>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1efa64" height="15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="5.0" top="20.0" />
+            <Insets left="5.0" top="25.0" />
          </GridPane.margin>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9696fa" height="15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="90.0" top="20.0" />
+            <Insets left="90.0" top="25.0" />
          </GridPane.margin>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fac81e" height="15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="20.0" left="90.0" />
+            <Insets bottom="15.0" left="90.0" />
          </GridPane.margin>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fa1450" height="15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="55.0" left="90.0" />
+            <Insets left="5.0" top="65.0" />
          </GridPane.margin>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3296fa" height="15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="5.0" top="60.0" />
+            <Insets bottom="50.0" left="90.0" />
          </GridPane.margin>
       </Rectangle>
       <Label text="Wall" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="55.0" left="30.0" />
+            <Insets bottom="50.0" left="30.0" />
          </GridPane.margin>
       </Label>
       <Label text="Empty" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="20.0" left="30.0" />
+            <Insets bottom="15.0" left="30.0" />
          </GridPane.margin>
       </Label>
       <Label text="Source" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -197,27 +197,27 @@
             <Insets left="30.0" />
          </padding>
          <GridPane.margin>
-            <Insets top="20.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="Player" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="30.0" top="60.0" />
+            <Insets top="25.0" />
          </GridPane.margin>
       </Label>
       <Label text="Destination" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="55.0" left="110.0" />
+            <Insets left="30.0" top="65.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Player" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="50.0" left="110.0" />
          </GridPane.margin>
       </Label>
       <Label text="Path" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="20.0" left="110.0" />
+            <Insets bottom="15.0" left="110.0" />
          </GridPane.margin>
       </Label>
       <Label text="Visited" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="110.0" top="20.0" />
+            <Insets left="110.0" top="25.0" />
          </GridPane.margin>
       </Label>
    </children>
