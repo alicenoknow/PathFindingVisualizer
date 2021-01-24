@@ -1,0 +1,59 @@
+.root {
+    -fx-app-background: rgb(210,210,250);
+    -fx-background-color: -fx-app-background;
+     -fx-padding: 15px 15px 0px 15px;
+  }
+
+  Button {
+      -fx-background-radius: 8;
+      -fx-background-color: linear-gradient(rgb(176, 36, 148), rgb(88, 36, 89));
+      -fx-font-weight: bold;
+      -fx-font-size: 1.1em;
+      -fx-text-fill: white;
+      -fx-font-family: 'sans-serif';
+  }
+  Button:hover {
+      -fx-background-color: linear-gradient(rgb(88, 36, 89), rgb(176, 36, 148));
+      -fx-effect: dropshadow(gaussian, rgba(95, 23, 80,0.3), 10, 0.7, 0.0, 0.0);
+      -fx-font-family: 'sans-serif';
+  }
+
+
+  CheckBox {
+          -fx-font-weight: bold;
+          -fx-font-size: 11.5px;
+          -fx-text-fill: rgb(52, 52, 142);
+          -fx-font-family: 'sans-serif';
+  }
+
+  Slider {
+        -fx-font-weight: bold;
+        -fx-font-size: 1.1em;
+        -fx-text-fill: rgb(52, 52, 142);
+        -fx-font-family: 'sans-serif';
+  }
+  Slider .axis {
+        -fx-tick-label-fill: rgb(52, 52, 142);
+  }
+
+  #small {
+        -fx-font-size: 11px;
+        -fx-text-fill: rgb(52, 52, 142);
+        -fx-font-family: 'sans-serif';
+  }
+
+  #message {
+          -fx-font-weight: bold;
+          -fx-font-size: 1.1em;
+          -fx-text-align: center;
+          -fx-text-fill: rgb(204, 49, 146);
+          -fx-font-family: 'sans-serif';
+    }
+
+  Label {
+          -fx-font-weight: bold;
+          -fx-font-size: 1.1em;
+          -fx-text-fill: rgb(52, 52, 142);
+          -fx-font-family: 'sans-serif';
+  }
+
