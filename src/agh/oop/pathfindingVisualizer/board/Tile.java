@@ -1,6 +1,6 @@
 package agh.oop.pathfindingVisualizer.board;
 
-import agh.oop.pathfindingVisualizer.Controller;
+import agh.oop.pathfindingVisualizer.controller.Controller;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;

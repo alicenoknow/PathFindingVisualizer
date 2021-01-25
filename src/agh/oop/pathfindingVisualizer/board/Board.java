@@ -1,6 +1,6 @@
 package agh.oop.pathfindingVisualizer.board;
 
-import agh.oop.pathfindingVisualizer.Controller;
+import agh.oop.pathfindingVisualizer.controller.Controller;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.*;
@@ -282,6 +282,10 @@ public class Board implements IStatusChangedObserver {
             between.changeStatus(TileStatus.EMPTY);
         if (first.isWall())
             first.changeStatus(TileStatus.EMPTY);
+    }
+
+    public void removePlayer(){
+
     }
 
     private boolean isConnected(Tile tile) {

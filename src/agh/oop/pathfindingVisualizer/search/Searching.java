@@ -1,6 +1,6 @@
 package agh.oop.pathfindingVisualizer.search;
 
-import agh.oop.pathfindingVisualizer.Controller;
+import agh.oop.pathfindingVisualizer.controller.Controller;
 import agh.oop.pathfindingVisualizer.algoritms.*;
 import agh.oop.pathfindingVisualizer.board.Board;
 

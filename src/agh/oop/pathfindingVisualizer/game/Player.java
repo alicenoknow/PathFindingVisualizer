@@ -1,6 +1,6 @@
-package game;
+package agh.oop.pathfindingVisualizer.game;
 
-import agh.oop.pathfindingVisualizer.Controller;
+import agh.oop.pathfindingVisualizer.controller.Controller;
 import agh.oop.pathfindingVisualizer.Main;
 import agh.oop.pathfindingVisualizer.board.Board;
 import agh.oop.pathfindingVisualizer.board.Tile;
@@ -19,11 +19,6 @@ public class Player {
         this.position = gameBoard.getSource();
         this.position.playerComes();
 
-        Controller.timeline = new Timeline();
-        Controller.timeline.setCycleCount(Timeline.INDEFINITE);
-        Main.stage.setOnCloseRequest(event -> Controller.timeline.stop());
-        Controller.timeline.play();
-
         Main.stage.addEventFilter(KeyEvent.KEY_PRESSED, keyListener);
 
     }
@@ -41,7 +36,7 @@ public class Player {
         }
     }
 
-    private final EventHandler<KeyEvent> keyListener = event -> {
+    public EventHandler<KeyEvent> keyListener = event -> {
         KeyCode move = event.getCode();
         switch (move) {
             case UP:
@@ -62,8 +57,10 @@ public class Player {
     };
 
     public boolean finished() {
-        if (FINISHED)
+        if (FINISHED) {
             Main.stage.removeEventFilter(KeyEvent.KEY_PRESSED, keyListener);
+            System.out.println("ddd");
+        }
         return FINISHED;
     }
 }
