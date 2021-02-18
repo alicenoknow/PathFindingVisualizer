@@ -2,7 +2,7 @@
 ![alt text](https://github.com/alicenoknow/PathFindingVisualizer/blob/master/pic1.png?raw=true)
 ##
 ## Description
-### Program provides to options:
+### Program provides two options:
 - visualising a path searching
 ##
 ![alt text](https://github.com/alicenoknow/PathFindingVisualizer/blob/master/pic2.png?raw=true)
