@@ -18,8 +18,7 @@ public abstract class AbstractAlgorithm {
         this.destination = destination;
     }
 
-    public void performStep() {
-    }
+    public abstract void performStep();
 
     public FLAGS flag() {
         return FLAG;
